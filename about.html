@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            width: 100%;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.7)50%,rgba(255, 255, 255,0.7)50%), url(images/jk.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 100%;
+        }
+
+        .navbar{
+            position: fixed;
+            width: 100%;
+            height: 75px;
+            margin: auto;
+            background-color: rgba(0,0,0,0.7) !important;
+            box-shadow: 0px 0px 10px #000; 
+        }
+
+        .navbar:hover{
+            height: 90px;
+            transition: 0.4s ease-in-out;
+            box-shadow: 0px 0px 20px #000;
+            background-color: rgba(0,0,0,0.9) !important;
+        }
+
+        .icon{
+            width: 200px;
+            float: left;
+            height: 70px;
+        }
+
+        .logo{
+            color: beige !important;
+            font-size: 25px;
+            font-family: system-ui;
+            padding-left: 20px;
+            float: left;
+            padding-top: 17px;
+            margin-top: 0;
+            margin-left: 100px;;
+            white-space: nowrap;
+        }
+        .logo::before {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-image: url(images/cam.jpg);
+            background-size: cover;
+            margin-right: 10px;
+            vertical-align: middle;
+            border-radius: 50%;
+            margin-top: -10px;
+            margin-left: -10px;
+        }
+        .menu{
+            width: 400px;
+            float: left;
+            height: 70px;
+        }
+        ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 500px;
+        }
+
+        ul li{
+            list-style: none;
+            margin-left: 62px;
+            margin-top: 27px;
+            font-size: 14px;
+        }
+
+        ul li a{
+            text-decoration: none;
+            color: #fff;
+            font-family: Arial;
+            font-weight: bold;
+            transition: 0.4s ease-in-out;
+        }
+
+        ul li a:hover{
+            color: #ff7200;
+        }
+
+        ul li a.active{
+            color: #ff7200;
+        }
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            margin-right: 20px;
+            position: relative;
+            z-index: 1000;
+        }
+        .burger-menu .burger {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            position: absolute;
+            left: 0;
+            transition: all 0.3 ease;
+          }
+        .burger:nth-child(1) {
+            top: 0;
+          }
+          
+        .burger:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          
+        .burger:nth-child(3) {
+            bottom: 0;
+          }
+        .menu.show ~ .burger-menu .burger:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+          }
+          
+        .menu.show ~ .burger-menu .burger:nth-child(2) {
+            opacity: 0;
+          }
+          
+        .menu.show ~ .burger-menu .burger:nth-child(3) {
+            transform: translateY(-50%);
+          }
+          .close-btn {
+            display: none;
+          }
+
+          .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+          }
+
+          h1 {
+              font-size: 3rem;
+              margin-bottom: 20px;
+              font-weight: 700;
+          }
+
+          .tagline {
+              font-size: 1.5rem;
+              font-weight: 300;
+              margin-bottom: 30px;
+          }
+
+          .about-section {
+              padding: 60px 0;
+          }
+
+          .about-section h2 {
+              font-size: 2.5rem;
+              color: #ff758c;
+              margin-top: 50px;
+              margin-bottom: 30px;
+              text-align: center;
+          }
+
+          h2 {
+              font-size: 2.5rem;
+              color: #ff758c;
+              margin-bottom: 30px;
+              text-align: center;
+          }
+
+          h3 {
+              font-size: 1.8rem;
+              color: #ff7eb3;
+              margin: 40px 0 20px;
+          }
+
+          p {
+              font-size: 1.1rem;
+              margin-bottom: 20px;
+          }
+
+          .features {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              margin: 40px 0;
+          }
+
+          .feature {
+              flex-basis: calc(25% - 20px);
+              text-align: center;
+              padding: 30px 20px;
+              background: white;
+              border-radius: 10px;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+              margin-bottom: 20px;
+              transition: transform 0.3s ease;
+          }
+
+          .feature:hover {
+              transform: translateY(-10px);
+          }
+
+          .feature-icon {
+              font-size: 2.5rem;
+              color: #ff758c;
+              margin-bottom: 15px;
+          }
+
+          .story-section {
+              padding: 60px 0;
+              margin: 40px 0;
+          }
+          
+          .story-section h3 {
+              font-size: 2rem;
+              color: #ff758c; 
+          }
+          .story-section p {
+              font-size: 1.6rem;
+              margin-bottom: 20px;
+          }
+          .founder {
+              font-weight: 600;
+          }
+
+          .founder-jun {
+              color: #3498db;
+          }
+
+          .founder-kat {
+              color: #ff6b8b;
+          }
+
+          .cta-section {
+              text-align: center;
+              padding: 60px 0;
+              color: #ff758c;
+          }
+
+          .cta-button {
+              display: inline-block;
+              background: #ff7eb3;
+              color: white;
+              padding: 15px 30px;
+              border-radius: 50px;
+              text-decoration: none;
+              font-weight: 600;
+              margin-top: 20px;
+              transition: all 0.3s ease;
+          }
+
+          .cta-button:hover {
+              background: #ff758c;
+              transform: scale(1.05);
+          }
+
+        @media (max-width: 768px) {
+          .main {
+            height: 100vh;
+          }
+          .navbar {
+            width: 100%;
+            height: 70px;
+            background-color: rgba(0, 0, 0, 0.7) !important;
+            box-shadow: 0px 0px 10px #000;
+          }
+          .logo {
+            margin-left: 20px;
+          }
+          .burger-menu {
+            display: flex;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+          }
+        
+          .menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 9999 !important;
+            padding-top: 80px;
+          }
+        
+          .menu ul {
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+          }
+        
+          .menu ul li {
+            margin: 20px 0;
+          }
+        
+          .menu.show {
+            transform: translateX(0);
+          }
+          .close-btn {
+            display: block;
+            font-size: 36px;
+            color: #fff;
+            background: none;
+            border: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1002;
+          }
+          
+          .close-btn:hover {
+            color: #ff7200;
+            transform: scale(1.1);
+            transition: color 0.3s ease, transform 0.3s ease;
+          }
+        }
+        @media (max-width: 1039px) and (orientation: landscape) {
+          .main {
+            overflow: auto;
+            height: 100vh;
+          }
+          .navbar {
+            width: 100%;
+            height: 70px;
+            background-color: rgba(0, 0, 0, 0.7) !important;
+            box-shadow: 0px 0px 10px #000;
+          }
+          .logo {
+            margin-left: 20px;
+          }
+          .burger-menu {
+            display: flex;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+          }
+        
+          .menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.95);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 9999 !important;
+            padding-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          .menu ul {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            align-items: center;
+          }
+          
+          .menu ul li a {
+            color: white;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+          }
+          .menu.show{
+            transform: translateX(0);
+          }
+          .close-btn {
+            display: block;
+            font-size: 36px;
+            color: #fff;
+            background: none;
+            border: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1002;
+          }
+          
+          .close-btn:hover {
+            color: #ff7200;
+            transform: scale(1.1);
+            transition: color 0.3s ease, transform 0.3s ease;
+          }
+          .feature {
+                flex-basis: calc(50% - 15px);
+          }
+            
+          h1 {
+                font-size: 2.5rem;
+          }
+            
+          h2 {
+                font-size: 2rem;
+          }
+        }
+      </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+</head>
+<body>
+        <header>
+            <div class="main">
+                <div class="navbar">
+                    <div class="icon">
+                            <h2 class="logo">J&K STUDIO</h2>
+                        </div>
+
+                        <div class="burger-menu" id="burger-menu">
+                            <div class="burger"></div>
+                            <div class="burger"></div>
+                            <div class="burger"></div>
+                        </div>
+                        
+                        <div class="menu" id="menu">
+                          <button class="close-btn" id="close-btn">&times;</button>
+                            <ul>
+                                <li><a href="index.html">HOME</a></li>
+                                <li><a href="about.html">ABOUT</a></li>
+                                <li><a href="packages.html">PACKAGES</a></li>    
+                                <li><a href="booking.html">BOOKING</a></li>
+                                <li><a href="contacts.html">CONTACT</a></li>
+                            </ul>
+                      </div>
+                </div>
+            <section class="about-section">
+        <div class="container">
+            <h2>Welcome to J&K Studio</h2>
+            <p>We specialize in bringing high-quality, interactive photo booth experiences to weddings, parties, 
+              corporate events, and special occasions. Our mission is simple: to help you and your guests create 
+              unforgettable memories in the most stylish and entertaining way possible.</p>
+            
+            <h3>Why Choose J&K Studio?</h3>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <h4>Premium Quality</h4>
+                    <p>Crystal-clear prints, professional lighting, and high-resolution cameras ensure every shot 
+                      looks amazing.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h4>Endless Customization</h4>
+                    <p>From themed backdrops to personalized templates and unlimited use of props, we tailor every detail to match 
+                      your event's vibe.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h4>Instant Sharing</h4>
+                    <p>Digital copies? No problem! Guests can share their pics instantly via text or 
+                      email.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-laugh-beam"></i>
+                    </div>
+                    <h4>Fun for All Ages</h4>
+                    <p>Our friendly attendants ensure everyone has a blast, whether it's a wedding, birthday, or 
+                       corporate gala. 2hrs of unlimited shots!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+      <div class="container">
+          <h3>Our Story</h3>
+          <p>Founded by <span class="founder founder-jun">Junniel Sorriano</span> and <span class="founder founder-kat">Kathleen Duya</span>, 
+            J&K Studio started with a passion for photography and a love for celebrations. 
+            What began as a small side hustle has grown into a trusted photo booth service, serving around Pampanga. 
+            We pride ourselves on delivering top-notch service with a personal touch—because your special moments 
+            deserve nothing less!</p>
+      </div>
+  </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Make Your Event Unforgettable!</h2>
+            <p>Whether you're planning an intimate gathering or a grand celebration, J&K Studio is here to elevate your event with laughter, creativity, and picture-perfect memories.</p>
+            <a href="contacts.html" class="cta-button">Contact Us Today</a>
+        </div>
+    </section>
+      
+            </div>
+        </header>
+
+        <script>
+            const burgerMenu = document.getElementById('burger-menu');
+            const menu = document.getElementById('menu');
+            const closeBtn = document.getElementById('close-btn')
+                  
+            burgerMenu.addEventListener('click', () => {
+            menu.classList.toggle('show');
+            });
+
+            closeBtn.addEventListener('click', () => {
+            menu.classList.remove('show');
+            });
+        </script>
+            
+</body>
+</html>
